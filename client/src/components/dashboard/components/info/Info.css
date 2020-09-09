@@ -1,0 +1,77 @@
+.info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 20px;
+    height: 100%;
+}
+
+.info__card {
+    display: flex;
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0 0 10px gainsboro, 0 0 5px gainsboro;
+    border-radius: 3px;
+}
+
+.info__icon {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(182, 182, 182);
+    margin-right: 15px;
+}
+.info__count {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.info__card-heading {
+    padding: 0;
+    font-weight: bold;
+    font-size: 13px;
+    color: #888;
+}
+.info__value {
+    padding: 0;
+    color: #5863f8;
+    font-size: 25px;
+}
+
+.info__status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1/3;
+}
+
+.info__status-card {
+    display: flex;
+    align-items: center;
+}
+.info__outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.info__inner {
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    display: inline-block;
+    border-radius: 50%;
+}
+.info__graph {
+    grid-column: 1/4;
+    grid-row: 3/5;
+}
+
+app-chart {
+    width: 100%;
+}

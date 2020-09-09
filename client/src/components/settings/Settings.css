@@ -1,0 +1,69 @@
+.container {
+    padding: 25px;
+}
+
+.settings__inputText,
+.settings__inputNumber,
+.settings__inputDropdown {
+    padding: 5px;
+    width: 350px;
+    border: 1px solid gainsboro;
+    font-size: 16px;
+}
+
+.settings__form {
+    position: absolute;
+    left: 50%;
+    top: 250px;
+    transform: translate(-50%, -50%);
+    width: 450px;
+}
+
+.settings__header {
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: 20px;
+}
+.settings__field {
+    margin: 15px 0;
+    display: flex;
+}
+.settings__label {
+    font-size: 14px;
+    color: #777;
+    display: flex;
+    align-items: center;
+    width: 100px;
+}
+.settings__labelRadio {
+    margin-right: 20px;
+}
+.settings__inputRadio {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.settings__btnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.settings__button:disabled {
+    background: #aaa;
+}
+.settings__button {
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    padding: 7px;
+    background: #5863f8;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+}
+.settings__button:hover {
+    background: #505bfc;
+}

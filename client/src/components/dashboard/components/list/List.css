@@ -1,0 +1,144 @@
+.list {
+    height: 100%;
+    margin-left: 50px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.list__body {
+    padding-top: 15px;
+    margin-left: 100px;
+}
+
+.list__work {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.list__layer1 {
+    position: relative;
+    background: #5863f8;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 20;
+}
+.list__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #5863f8;
+    font-weight: bold;
+}
+.list__layer1::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 7px;
+    background: #5863f8;
+    left: -100%;
+}
+.list__layer1::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 100px;
+    background: #5863f8;
+    left: -100%;
+}
+.list__layer2 {
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    box-shadow: 0 0 5px gainsboro, 0 0 3px rgb(184, 182, 182);
+    background: #fff;
+    width: 80px;
+    height: 80px;
+    z-index: 10;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list__layer3 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    left: -74px;
+    top: 20px;
+    z-index: 21;
+    border-radius: 50%;
+    box-shadow: 0 0 5px gainsboro, 0 0 3px rgb(184, 182, 182);
+}
+.list__layer4 {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #444;
+    z-index: 21;
+    border-radius: 50%;
+    box-shadow: 0 0 5px gainsboro, 0 0 3px rgb(184, 182, 182);
+}
+.list__details {
+    position: absolute;
+    height: 65px;
+    width: 400px;
+    background: #fff;
+    top: 0px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px gainsboro, 0 0 3px rgb(184, 182, 182);
+    padding: 10px;
+    padding-left: 90px;
+    display: flex;
+    justify-content: space-between;
+}
+.list__heading {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.list__subHeading {
+    font-size: 17px;
+    color: #444;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.list__description{
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.list__month,
+.list__description {
+    font-size: 14px;
+    color: #888;
+    
+}
+.list__earning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.list__day {
+    font-size: 18px;
+    color: #5863f8;
+    font-weight: bold;
+}

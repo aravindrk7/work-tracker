@@ -1,0 +1,52 @@
+.header {
+    background: rgb(37, 37, 37);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    padding: 0 25px;
+    justify-content: space-between;
+    box-shadow: 0 0 5px gray;
+    user-select: none;
+}
+
+.header__heading {
+    display: flex;
+    align-items: center;
+}
+.header__logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.header__name {
+    font-size: 15px;
+    color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__routes {
+    display: flex;
+    align-items: center;
+}
+
+.header__menu {
+    cursor: pointer;
+    font-size: 14px;
+    color: #f4f4f4 !important;
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 3px;
+    transition: 0.5s;
+
+}
+.header__menu:hover {
+    font-weight: bold;
+}
+.is-active {
+    background: #5863f8;
+    font-weight: bold;
+}
