@@ -29,30 +29,30 @@ function Settings() {
                 <h1 className="settings__header">Add New Work</h1>
 
                 <div className="settings__field">
-                    <label className="settings__label" for="">Category</label>
+                    <label className="settings__label">Category</label>
                     <input className="settings__inputRadio" type="radio" name="category" onChange={handleFormData} id="photoshop" value='photoshop' required />
-                    <label className="settings__labelRadio" for="photoshop">Photoshop</label>
+                    <label className="settings__labelRadio" >Photoshop</label>
                     <input className="settings__inputRadio" type="radio" name="category" onChange={handleFormData} id="web" value='webDevelopment' required />
-                    <label className="settings__labelRadio" for="web">Web Development</label>
+                    <label className="settings__labelRadio">Web Development</label>
                 </div>
                 <div className="settings__field">
-                    <label className="settings__label" for="">Sub Category</label>
+                    <label className="settings__label">Sub Category</label>
                     <input className="settings__inputText" type="text" name="subCategory" onChange={handleFormData} required />
                 </div>
                 <div className="settings__field">
-                    <label className="settings__label" for="status">Status</label>
+                    <label className="settings__label">Status</label>
                     <select className="settings__inputDropdown" name="status" onChange={handleFormData} id="status" required>
-                        <option value="open" selected>Open</option>
+                        <option value="open" defaultValue>Open</option>
                         <option value="inProgress">InProgress</option>
                         <option value="completed">Completed</option>
                     </select>
                 </div>
                 <div className="settings__field">
-                    <label className="settings__label" for="">Title</label>
+                    <label className="settings__label">Title</label>
                     <input className="settings__inputText" type="text" name="title" onChange={handleFormData} required />
                 </div>
                 <div className="settings__field">
-                    <label className="settings__label" for="">Earning</label>
+                    <label className="settings__label">Earning</label>
                     <input className="settings__inputNumber" type="number" name="earning" onChange={handleFormData} required />
                 </div>
                 <div className="settings__btnContainer">

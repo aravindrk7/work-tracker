@@ -27,10 +27,28 @@ function Dashboard() {
             });
     }, [])
 
+    const tabItems = [
+        {
+            path: 'overall',
+            name: 'Overall',
+            id:1
+        },
+        {
+            path: 'photoshop',
+            name: 'Photoshop',
+            id:2
+        },
+        {
+            path: 'web-dev',
+            name: 'Web Development',
+            id:3
+        }
+    ]
+
     return (
         <Router>
             <div className="dashboard">
-                <Tab />
+                <Tab routes={tabItems}/>
                 <Switch>
                     <Route exact path="/dashboard/">
                         <Redirect to="/dashboard/overall" />

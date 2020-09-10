@@ -2,18 +2,15 @@ import React from 'react';
 import './Tab.css'
 import { NavLink } from "react-router-dom";
 
-function Tab() {
+function Tab({ routes }) {
+    console.log(routes);
     return (
         <div className="tab">
-            <NavLink to="/dashboard/overall" activeClassName='is-active-tab' className="tab__menu">
-                <p >Overall</p>
-            </NavLink>
-            <NavLink to="/dashboard/photoshop" activeClassName='is-active-tab' className="tab__menu">
-                <p >Photoshop</p>
-            </NavLink>
-            <NavLink to="/dashboard/web-dev" activeClassName='is-active-tab' className="tab__menu">
-                <p >Web Development</p>
-            </NavLink>
+            {routes?.map(route => (
+                <NavLink to={"/dashboard/" + route.path} key={route.id} activeClassName='is-active-tab' className="tab__menu">
+                    <p >{route.name}</p>
+                </NavLink>
+            ))}
         </div>
     )
 }

@@ -5,9 +5,15 @@ import ComputerIcon from '@material-ui/icons/Computer';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
+import { useSpring, animated } from 'react-spring';
 
-function info({ works }) {
-    console.log(works);
+
+function Info({ works }) {
+    const fadeIn = useSpring({
+        from: { opacity: 0},
+        opacity: 1,
+      
+    })
     const state = {
         options: {
             chart: {
@@ -36,7 +42,7 @@ function info({ works }) {
         ]
     };
     return (
-        <div className="info">
+        <animated.div className="info" style={fadeIn}>
 
             <div className="info__card">
                 <div className="info__icon">
@@ -111,8 +117,8 @@ function info({ works }) {
             <div className="info__card info__graph">
                 <Charts state={state} />
             </div >
-        </div >
+        </animated.div >
     )
 }
 
-export default info
+export default Info;

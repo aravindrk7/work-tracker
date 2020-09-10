@@ -1,5 +1,6 @@
 import React from 'react';
 import './List.css';
+import { useSpring, animated } from 'react-spring';
 
 function List({ works }) {
 
@@ -14,13 +15,18 @@ function List({ works }) {
         return day;
     };
 
-    console.log(works);
+    // Animations
+    const slide = useSpring({
+        from: {  marginTop: -500 },
+        marginTop: 0,
+    })
+
     return (
 
         <div className='list'>
             <div className="list__body">
                 {works?.map(work => (
-                    <div key={work._id} className="list__work">
+                    <animated.div key={work._id} className="list__work" style={slide}>
                         <div className="list__layer1">
                             <div className="list__content">
                                 <p className="list__month">{getMonth(work.startdate)}</p>
@@ -40,7 +46,7 @@ function List({ works }) {
                                 <span>₹{work.earning}</span>
                             </div>
                         </div>
-                    </div>
+                    </animated.div>
                 ))}
             </div>
         </div>
