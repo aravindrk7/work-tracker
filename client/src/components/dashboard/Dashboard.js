@@ -4,23 +4,25 @@ import Tab from './components/tab/Tab';
 import Overall from './components/main/Main';
 import NoMatch from '../noMatch/NoMatch';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { config } from './../../constants';
 
 function Dashboard() {
+    const api_url = config.url.API_URL;
     const [works, setWorks] = useState([]);
     const [photoshopWorks, setPhotoshopWorks] = useState([]);
     const [webWorks, setWebWorks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/dashboard')
+        fetch(api_url + 'dashboard')
             .then(response => response.json())
             .then(data => {
                 setWorks(data);
             });
-        fetch('http://localhost:5000/dashboard/photoshop')
+        fetch(api_url + 'dashboard/photoshop')
             .then(response => response.json())
             .then(data => {
                 setPhotoshopWorks(data);
             });
-        fetch('http://localhost:5000/dashboard/webDevelopment')
+        fetch(api_url + 'dashboard/webDevelopment')
             .then(response => response.json())
             .then(data => {
                 setWebWorks(data);
@@ -31,24 +33,24 @@ function Dashboard() {
         {
             path: 'overall',
             name: 'Overall',
-            id:1
+            id: 1
         },
         {
             path: 'photoshop',
             name: 'Photoshop',
-            id:2
+            id: 2
         },
         {
             path: 'web-dev',
             name: 'Web Development',
-            id:3
+            id: 3
         }
     ]
 
     return (
         <Router>
             <div className="dashboard">
-                <Tab routes={tabItems}/>
+                <Tab routes={tabItems} />
                 <Switch>
                     <Route exact path="/dashboard/">
                         <Redirect to="/dashboard/overall" />

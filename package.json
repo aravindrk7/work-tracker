@@ -2,14 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "lint": "eslink src/"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
-  "author": "",
+  "author": "Aravind",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
@@ -20,9 +20,6 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "eslint": "^7.7.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
     "nodemon": "^2.0.4"
   }
 }

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import './Settings.css'
+import './Settings.css';
+import { config } from './../../constants';
 
 function Settings() {
+    const api_url = config.url.API_URL;
+
     const [formData, setFormData] = useState({ status: 'open' });
 
     const handleFormData = (e) => {
@@ -19,8 +22,11 @@ function Settings() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         };
-        fetch('http://localhost:5000/dashboard/add-work', requestOptions)
-            .then(response => response.json()).then(setFormData({}))
+        fetch(api_url + 'dashboard/add-work', requestOptions)
+            .then(response => response.json()).then(data => {
+                console.log(data);
+                setFormData({})
+            })
 
     };
     return (
