@@ -1,0 +1,24 @@
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.tab__menu {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #777;
+    padding: 0 10px;
+    border-right: 1px solid gainsboro;
+    cursor: pointer;
+}
+.tab__menu:last-child {
+    border: none;
+}
+.tab__menu:hover:not(.active) {
+    color: black;
+}
+.is-active-tab {
+    color: #5863f8;
+}

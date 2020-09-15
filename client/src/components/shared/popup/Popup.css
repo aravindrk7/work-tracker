@@ -1,0 +1,55 @@
+.popup {
+}
+.popup__overlay {
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 9;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.popup__box {
+    user-select: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* height: 300px;
+    width: 400px; */
+    background: #fff;
+    z-index: 10 !important;
+    background: #fff;
+    box-shadow: 0 0 5px #888, 0 0 3px #666;
+    border-radius: 3px;
+}
+
+.popup__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.popup__heading {
+    font-size: 16px;
+    /* padding: 10px 0;
+    padding-bottom: 20px; */
+    color: #444;
+}
+
+.popup__close {
+    font-size: 18px;
+    /* padding: 10px 0;
+    padding-bottom: 20px; */
+    color: #444;
+    cursor: pointer;
+    transition: .5s;
+}
+.popup__close:hover {
+    color: #5863f8;
+}
+
+.popup__content{
+    padding: 10px 20px;
+}

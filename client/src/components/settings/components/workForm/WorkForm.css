@@ -1,0 +1,73 @@
+.workForm {
+    /* height: calc(100% - 18px); */
+
+    /* position: absolute;
+    left: 50%;
+    top: 278px;
+    transform: translate(-50%, -50%); */
+    /* width: 450px; */
+}
+
+.workForm__heading {
+    font-size: 16px;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gainsboro;
+    color: #444;
+}
+
+.workForm__inputText,
+.workForm__inputNumber,
+.workForm__inputDropdown {
+    padding: 5px;
+    width: 350px;
+    border: 1px solid gainsboro;
+    font-size: 16px;
+}
+
+.workForm__field {
+    margin: 15px 0;
+    display: flex;
+}
+.workForm__label {
+    font-size: 14px;
+    color: #777;
+    color: #444;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    width: 100px;
+}
+.workForm__labelRadio {
+    margin-right: 20px;
+}
+.workForm__inputRadio {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.workForm__btnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.workForm__button:disabled {
+    background: #aaa;
+}
+.workForm__button {
+    display: flex;
+    align-items: center;
+    background: #5863f8;
+    color: #fff;
+    margin-left: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px 20px;
+    box-shadow: 1px 2px 4px 0px #aaa;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.workForm__button:hover {
+    background: #515be9;
+}

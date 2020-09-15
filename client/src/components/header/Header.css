@@ -38,15 +38,20 @@
     color: #f4f4f4 !important;
     margin-left: 10px;
     text-decoration: none;
-    padding: 5px;
     border-radius: 3px;
     transition: 0.5s;
+    text-transform: uppercase;
+    font-weight: 600;
 
+    /* padding: 10px; */
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: 0.5s;
 }
 .header__menu:hover {
     font-weight: bold;
 }
 .is-active {
-    background: #5863f8;
-    font-weight: bold;
+    background: #525be4;
+    color: #fff;
 }

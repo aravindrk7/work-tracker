@@ -1,24 +1,25 @@
-.overall {
-    height: 100%;
+.main {
+    height: calc(100% - 18px);
 }
-.overall__heading {
-    font-size: 16px;
+.main__heading {
+    font-size: 18px;
     padding: 10px 0;
     padding-bottom: 20px;
     color: #444;
 }
 
-main {
+.main__content {
+    height: 100%;
     display: grid;
     grid-template-columns: calc(50% - 10px) calc(50% - 10px);
     grid-gap: 20px;
-    height: 100%;
 }
 
-.overall__dashboard {
-    height: calc(100% - 95px);
+.main__dashboard {
+    height: calc(100% - 75px);
 }
-.overall__workList {
-    height: calc(100% - 95px);
+.main__workList {
+    height: calc(100% - 75px);
     overflow-y: auto;
+
 }

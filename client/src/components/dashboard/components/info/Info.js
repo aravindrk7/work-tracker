@@ -7,7 +7,6 @@ import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import { useSpring, animated } from 'react-spring';
 
-
 function Info({ works }) {
     const fadeIn = useSpring({
         from: { opacity: 0},
@@ -37,7 +36,7 @@ function Info({ works }) {
         series: [
             {
                 name: "Projects",
-                data: works.graph
+                data: works.graph || []
             }
         ]
     };

@@ -1,34 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
-import Tab from './components/tab/Tab';
+import Tab from './../shared/tab/Tab';
 import Overall from './components/main/Main';
 import NoMatch from '../noMatch/NoMatch';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { config } from './../../constants';
+import axios from 'axios';
 
 function Dashboard() {
     const api_url = config.url.API_URL;
-    const [works, setWorks] = useState([]);
-    const [photoshopWorks, setPhotoshopWorks] = useState([]);
-    const [webWorks, setWebWorks] = useState([]);
+    const [works, setWorks] = useState({});
+    const [photoshopWorks, setPhotoshopWorks] = useState({});
+    const [webWorks, setWebWorks] = useState({});
     useEffect(() => {
-        fetch(api_url + 'dashboard')
-            .then(response => response.json())
-            .then(data => {
-                setWorks(data);
+        axios.get(api_url + 'dashboard')
+            .then(response => {
+                setWorks(response.data);
             });
-        fetch(api_url + 'dashboard/photoshop')
-            .then(response => response.json())
-            .then(data => {
-                setPhotoshopWorks(data);
+        axios.get(api_url + 'dashboard/photoshop')
+            .then(response => {
+                setPhotoshopWorks(response.data);
             });
-        fetch(api_url + 'dashboard/webDevelopment')
-            .then(response => response.json())
-            .then(data => {
-                setWebWorks(data);
+        axios.get(api_url + 'dashboard/webDevelopment')
+            .then(response => {
+                setWebWorks(response.data);
             });
-    }, [])
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    const parent = "/dashboard/";
     const tabItems = [
         {
             path: 'overall',
@@ -50,7 +49,7 @@ function Dashboard() {
     return (
         <Router>
             <div className="dashboard">
-                <Tab routes={tabItems} />
+                <Tab routes={tabItems} parent={parent} />
                 <Switch>
                     <Route exact path="/dashboard/">
                         <Redirect to="/dashboard/overall" />

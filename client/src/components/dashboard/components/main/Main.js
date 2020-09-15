@@ -5,13 +5,13 @@ import List from '../list/List';
 
 function Overall({ works }) {
     return (
-        <div className="overall">
-            <h1 className="overall__heading">Dashboard</h1>
-            <main>
-                <div className="overall__dashboard">
+        <div className="main">
+            <h1 className="main__heading">Dashboard</h1>
+            <main className="main__content">
+                <div className="main__dashboard">
                     <Dash works={works} />
                 </div>
-                <div className="overall__workList" >
+                <div className="main__workList" >
                     <List works={works.list} />
                 </div >
             </main >
