@@ -4,7 +4,7 @@ import WorkForm from '../../settings/components/workForm/WorkForm';
 import CloseIcon from '@material-ui/icons/Close';
 
 
-function Popup({ closePopup, action ,formProps}) {
+function Popup({ closePopup, action ,formProps,refreshList}) {
     const handleClosePopup = () => {
         closePopup();
     };
@@ -17,7 +17,7 @@ function Popup({ closePopup, action ,formProps}) {
                         <CloseIcon className="popup__close" onClick={handleClosePopup} />
                     </div>
                     <div className="popup__content">
-                        <WorkForm action={action} formProps={formProps}/>
+                        <WorkForm action={action} formProps={formProps} refreshList={refreshList}/>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ const path = require('path');
 require('dotenv').config();
 
 const dashboardRoutes = require('./api/dashboard');
+const workRoutes = require('./api/work');
 const middlewares = require('./middlewares');
 
 const app = express();
@@ -24,6 +25,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/work', workRoutes);
 
 // Serve static assets
 if(process.env.NODE_ENV === 'production'){

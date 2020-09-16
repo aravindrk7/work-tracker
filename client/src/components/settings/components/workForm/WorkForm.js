@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { config } from '../../../../constants';
 import './WorkForm.css';
 import axios from 'axios';
-function WorkForm({ action, formProps }) {
+function WorkForm({ action, formProps, refreshList }) {
     const api_url = config.url.API_URL;
 
     const [formData, setFormData] = useState(formProps);
-    console.log(formData);
 
     const handleFormData = (e) => {
         let name = e.target.name;
@@ -16,20 +15,26 @@ function WorkForm({ action, formProps }) {
         ));
     };
 
+    const handleRefreshList = (work) => {
+        refreshList(work);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (action === 'Add New Work') {
+            axios.post(api_url + 'work/add', formData)
+                .then(response => {
+                    setFormData(formProps);
+                    handleRefreshList();
+                });
+        }
+        else {
+            axios.patch(api_url + 'work/update', formData)
+                .then(response => {
+                    handleRefreshList();
+                });
+        }
 
-        console.log(formData);
-        // const requestOptions = {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(formData)
-        // };
-        axios.post(api_url + 'dashboard/add-work', formData)
-            .then(response => {
-                console.log(response);
-                setFormData({})
-            })
 
     };
 

@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const works = require('../models/works');
 
 function getGraphData(data) {

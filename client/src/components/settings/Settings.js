@@ -16,6 +16,7 @@ function Settings() {
     const [popup, setPopup] = useState(false);
     const [formProps, setFormProps] = useState({});
     const [action, setAction] = useState('');
+    const [updateCount, setUpdateCount] = useState(0);
 
     useEffect(() => {
         axios.get(api_url + 'dashboard')
@@ -23,7 +24,7 @@ function Settings() {
                 setWorks(response.data.list);
             });
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [updateCount]);
 
     const getDate = (date) => {
         date = new Date(date);
@@ -37,8 +38,12 @@ function Settings() {
     };
 
 
+    const refreshList = () => {
+        setUpdateCount(prevCount => prevCount + 1);
+    };
+
+
     const openPopup = (action, id) => {
-        // console.log(id);
         let selectedWork;
         if (id) {
             selectedWork = works.find(work => {
@@ -63,6 +68,14 @@ function Settings() {
         setPopup(false);
     }
 
+    const handleDelete = (id) => {
+        axios.delete(api_url + 'work/delete/' + id)
+            .then(response => {
+                refreshList();
+            });
+    };
+
+
     // Animations
     const slide = useSpring({
         from: { marginTop: -500 },
@@ -72,7 +85,7 @@ function Settings() {
     return (
 
         <div className="settings">
-            {popup && <Popup closePopup={closePopup} action={action} formProps={formProps} />}
+            {popup && <Popup closePopup={closePopup} action={action} formProps={formProps} refreshList={refreshList} />}
             <div className="settings__header">
                 <h1 className="settings__heading">Settings</h1>
                 <div className="settings__headerButtons">
@@ -110,7 +123,7 @@ function Settings() {
                                 <button className="settings__itemButton" onClick={() => openPopup('Update', work._id)}>
                                     <EditIcon className="settings__icon" />
                                 </button>
-                                <button className="settings__itemButton">
+                                <button className="settings__itemButton" onClick={() => handleDelete(work._id)}>
                                     <DeleteIcon className="settings__icon" />
                                 </button>
                             </div>
