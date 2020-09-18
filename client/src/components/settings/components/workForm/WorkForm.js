@@ -44,10 +44,12 @@ function WorkForm({ action, formProps, refreshList }) {
 
             <div className="workForm__field">
                 <label className="workForm__label">Category</label>
-                <input className="workForm__inputRadio" checked={(formData.category === 'photoshop') ? true : false} type="radio" name="category" onChange={handleFormData} id="photoshop" value='photoshop' required />
-                <label className="workForm__labelRadio" >Photoshop</label>
-                <input className="workForm__inputRadio" checked={(formData.category === 'webDevelopment') ? true : false} type="radio" name="category" onChange={handleFormData} id="web" value='webDevelopment' required />
-                <label className="workForm__labelRadio">Web Development</label>
+                <div>
+                    <input className="workForm__inputRadio" checked={(formData.category === 'photoshop') ? true : false} type="radio" name="category" onChange={handleFormData} id="photoshop" value='photoshop' required />
+                    <label className="workForm__labelRadio" for="photoshop">Photoshop</label>
+                    <input className="workForm__inputRadio" checked={(formData.category === 'webDevelopment') ? true : false} type="radio" name="category" onChange={handleFormData} id="web" value='webDevelopment' required />
+                    <label className="workForm__labelRadio" for="web">Web Development</label>
+                </div>
             </div>
             <div className="workForm__field">
                 <label className="workForm__label">Sub Category</label>

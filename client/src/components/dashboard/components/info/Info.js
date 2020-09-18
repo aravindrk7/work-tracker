@@ -9,28 +9,28 @@ import { useSpring, animated } from 'react-spring';
 
 function Info({ works }) {
     const fadeIn = useSpring({
-        from: { opacity: 0},
+        from: { opacity: 0 },
         opacity: 1,
-      
+
     })
     const state = {
         options: {
             chart: {
                 id: "basic-bar",
             },
-            title:{
-                text:'Projects per Month',
-                style:{
-                    fontSize:'13px',
-                    fontWeight:'bold',
-                    fontFamily:'ember'
+            title: {
+                text: 'Projects per Month',
+                style: {
+                    fontSize: '13px',
+                    fontWeight: 'bold',
+                    fontFamily: 'ember'
                 }
             },
             xaxis: {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
             },
             fill: {
-                colors: ['#5863f8']
+                colors: ['var(--color--primary)']
             }
         },
         series: [
@@ -43,7 +43,7 @@ function Info({ works }) {
     return (
         <animated.div className="info" style={fadeIn}>
 
-            <div className="info__card">
+            <div className="info__card info__project">
                 <div className="info__icon">
                     <ComputerIcon />
                 </div>
@@ -53,7 +53,7 @@ function Info({ works }) {
                 </div>
             </div>
 
-            <div className="info__card">
+            <div className="info__card info__earning">
                 <div className="info__icon">
                     <AttachMoneyIcon />
                 </div>
@@ -63,12 +63,12 @@ function Info({ works }) {
                 </div>
             </div>
 
-            <div className="info__card">
+            <div className="info__card info__epp">
                 <div className="info__icon">
                     <LocalAtmIcon />
                 </div>
                 <div className="info__count">
-                    <p className="info__value">{parseFloat(works.earningsPerProject).toFixed(1)}</p>
+                    <p className="info__value">{Math.ceil(works.earningsPerProject)}</p>
                     <h1 className="info__card-heading">Earnings / Project</h1>
                 </div>
             </div>
@@ -104,7 +104,7 @@ function Info({ works }) {
                 </div >
             </div >
 
-            <div className="info__card">
+            <div className="info__card info__ppm">
                 <div className="info__icon">
                     <EqualizerIcon />
                 </div>

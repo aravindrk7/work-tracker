@@ -20,6 +20,30 @@
 }
 .main__workList {
     height: calc(100% - 75px);
+    /* background: red; */
     overflow-y: auto;
-
+    overflow-x: hidden;
+}
+.main__WorkListHeading {
+    display: none;
+    font-size: 18px;
+    padding: 10px 0;
+    padding-bottom: 20px;
+    color: #444;
+}
+@media (max-width: 1000px) {
+    .main__content {
+        grid-template-columns: calc(100% - 10px);
+    }
+    .main__workList {
+        height: 500px;
+        overflow-y: auto;
+        
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .main__WorkListHeading {
+        display: block;
+    }
 }

@@ -77,7 +77,7 @@
     box-shadow: 0 0 5px gainsboro, 0 0 2px gray;
 }
 .update__itemButton:hover {
-    background: #5863f8;
+    background: var(--color--primary);
 }
 .update__itemButton:hover .update__icon  {
     color: #fff;

@@ -20,5 +20,5 @@
     color: black;
 }
 .is-active-tab {
-    color: #5863f8;
+    color: var(--color--primary);
 }

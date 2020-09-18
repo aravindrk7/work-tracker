@@ -3,6 +3,8 @@
     margin-left: 50px;
     position: relative;
     overflow-x: hidden;
+    padding-right: 20px;
+    width: calc(100% - 60px);
 }
 
 .list__body {
@@ -17,7 +19,7 @@
 
 .list__layer1 {
     position: relative;
-    background: #5863f8;
+    background: var(--color--primary);
     width: 65px;
     height: 65px;
     border-radius: 50%;
@@ -36,7 +38,7 @@
     height: 50px;
     border-radius: 50%;
     background: #fff;
-    color: #5863f8;
+    color: var(--color--primary);
     font-weight: bold;
 }
 .list__layer1::after {
@@ -44,7 +46,7 @@
     position: absolute;
     width: 70px;
     height: 7px;
-    background: #5863f8;
+    background: var(--color--primary);
     left: -100%;
 }
 .list__layer1::before {
@@ -52,7 +54,7 @@
     position: absolute;
     width: 7px;
     height: 100px;
-    background: #5863f8;
+    background: var(--color--primary);
     left: -100%;
 }
 .list__layer2 {
@@ -93,9 +95,10 @@
     box-shadow: 0 0 5px gainsboro, 0 0 3px rgb(184, 182, 182);
 }
 .list__details {
+    width: 100%;
     position: absolute;
     height: 65px;
-    width: 400px;
+    /* width: 400px; */
     background: #fff;
     top: 0px;
     border-radius: 20px;
@@ -119,7 +122,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.list__description{
+.list__description {
     width: 90%;
     white-space: nowrap;
     overflow: hidden;
@@ -129,7 +132,6 @@
 .list__description {
     font-size: 14px;
     color: #888;
-    
 }
 .list__earning {
     display: flex;
@@ -139,6 +141,43 @@
 }
 .list__day {
     font-size: 18px;
-    color: #5863f8;
+    color: var(--color--primary);
     font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+    .list {
+        /* padding-right: 30px; */
+        width: calc(100% - 10px);
+        margin-left: 10px;
+    }
+    .list__details {
+        width: 100%;
+    }
+    .list__heading {
+        width: 80%;
+    }
+}
+@media (max-width: 600px) {
+    .list__heading {
+        width: 70%;
+    }
+}
+@media (max-width: 460px) {
+    .list__body {
+        margin-left: 30px;
+    }
+
+    .list__layer1::after {
+        width: 30px;
+        height: 7px;
+        left: -40%;
+    }
+    .list__layer1::before {
+        left: -40%;
+    }
+    .list__layer3 {
+        left: -37px;
+    }
+    
 }

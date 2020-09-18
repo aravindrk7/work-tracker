@@ -2,6 +2,9 @@
   font-family: ember;
   src: url(fonts/ember.ttf);
 }
+:root {
+  --color--primary: #5863f8;
+}
 
 * {
   margin: 0;
@@ -12,32 +15,30 @@
   font-family: ember;
   scroll-behavior: smooth;
 }
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-} */
 
 /* width */
 
 ::-webkit-scrollbar {
-    height: 5px;
-    width: 3px;
+  height: 5px;
+  width: 3px;
 }
 
 /* Track */
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 /* Handle */
 
 ::-webkit-scrollbar-thumb {
-    width: 10px;
-    background: #888;
+  width: 10px;
+  background: #888;
 }
 
 /* Handle on hover */
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
+

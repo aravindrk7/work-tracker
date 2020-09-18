@@ -113,17 +113,36 @@ function Settings() {
                 <div className='settings__itemsRow'>
                     {works?.map(work => (
                         <animated.div key={work._id} className='settings__items' style={slide}>
-                            <p className='settings__item'>{getDate(work?.startdate)}</p>
-                            <p className='settings__item'>{work?.category}</p>
-                            <p className='settings__item'>{work?.subCategory}</p>
-                            <p className='settings__item'>{work?.title}</p>
-                            <p className='settings__item'>{work?.status}</p>
-                            <p className='settings__item'>₹{work?.earning}</p>
+                            <div>
+                                <h2 className="settings__itemHeading--mobile">Date</h2>
+                                <p title={work?.startdate} className='settings__item settings__item--date'>{getDate(work?.startdate)}</p>
+                            </div>
+                            <div>
+                                <h2 className="settings__itemHeading--mobile">Category</h2>
+                                <p title={work?.category} className='settings__item'>{work?.category}</p>
+                            </div>
+                            <div>
+                                <h2 className="settings__itemHeading--mobile">Sub-category</h2>
+                                <p title={work?.subCategory} className='settings__item'>{work?.subCategory}</p>
+                            </div>
+                            <div>
+                                <h2 className="settings__itemHeading--mobile">Title</h2>
+                                <p title={work?.title} className='settings__item'>{work?.title}</p>
+                            </div>
+                            <div>
+                                <h2 className="settings__itemHeading--mobile">Status</h2>
+                                <p title={work?.status} className='settings__item settings__item--status'>{work?.status}</p>
+                            </div>
+                            <div>
+                                <h2 className="settings__itemHeading--mobile ">Earning </h2>
+                                <p title={work?.earning} className='settings__item settings__item--earning'>₹{work?.earning}</p>
+                            </div>
+                            {/* <h2 className="settings__itemHeading--mobile">Action</h2> */}
                             <div className="settings__itemButtons">
-                                <button className="settings__itemButton" onClick={() => openPopup('Update', work._id)}>
+                                <button title="Edit" className="settings__itemButton" onClick={() => openPopup('Update', work._id)} title="Edit">
                                     <EditIcon className="settings__icon" />
                                 </button>
-                                <button className="settings__itemButton" onClick={() => handleDelete(work._id)}>
+                                <button title="Delete" className="settings__itemButton" onClick={() => handleDelete(work._id)} title="Delete">
                                     <DeleteIcon className="settings__icon" />
                                 </button>
                             </div>

@@ -12,6 +12,7 @@ function Overall({ works }) {
                     <Dash works={works} />
                 </div>
                 <div className="main__workList" >
+                    <h1 className="main__WorkListHeading">Work List</h1>
                     <List works={works.list} />
                 </div >
             </main >

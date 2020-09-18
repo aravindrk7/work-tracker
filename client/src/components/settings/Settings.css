@@ -20,7 +20,7 @@
 .settings__headerButton {
     display: flex;
     align-items: center;
-    background: #5863f8;
+    background: var(--color--primary);
     color: #fff;
     margin-left: 10px;
     border-radius: 20px;
@@ -33,16 +33,16 @@
 
 .settings__headerButton:hover {
     background: #fff;
-    color: #5863f8;
+    color: var(--color--primary);
 }
 .settings__headerButton--white:hover {
-    background: #5863f8;
+    background: var(--color--primary);
     color: #fff;
 }
 
 .settings__headerButton--white {
     background: #fff;
-    color: #5863f8;
+    color: var(--color--primary);
 }
 .settings__headerButtonIcon {
     font-size: 20px !important;
@@ -67,7 +67,6 @@
 
 .settings__itemsHeading {
     display: flex;
-    background: #fff;
     min-height: 50px;
     border-bottom: 1px solid gainsboro;
     position: fixed;
@@ -82,12 +81,12 @@
     flex-grow: 0;
     display: flex;
     align-items: center;
+    /* width: 120px; */
 }
 
 .settings__itemsRow {
     height: calc(100% - 50px);
     overflow: auto;
-    background: #fff;
     margin-top: 50px;
 }
 
@@ -97,16 +96,36 @@
     border-bottom: 1px solid gainsboro;
 }
 
-.settings__item {
+.settings__items > div {
+    width: 100%;
     display: flex;
     align-items: center;
-    flex-basis: 14.28%;
+}
+
+.settings__item {
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    /* flex-basis: 14.28%; */
     flex-grow: 0;
-    width: 10px;
+    width: 120px;
     padding-right: 30px;
     font-size: 14px;
     font-weight: 500;
     color: #444;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+}
+.settings__item--date{
+    width: 115px;
+}
+.settings__item--status{
+    width: 100px;
+}
+.settings__item--earning{
+    width: 75px;
 }
 
 .settings__itemButtons {
@@ -125,7 +144,7 @@
     box-shadow: 0 0 5px gainsboro, 0 0 2px gray;
 }
 .settings__itemButton:hover {
-    background: #5863f8;
+    background: var(--color--primary);
 }
 .settings__itemButton:hover .settings__icon {
     color: #fff;
@@ -139,4 +158,76 @@
     font-size: 20px !important;
     color: #444;
     transition: 0.5s !important;
+}
+
+@media (max-width: 440px) {
+    .settings__headerButtonName {
+        display: none;
+    }
+    .settings__headerButtonIcon {
+        margin-right: 0;
+    }
+    .settings__headerButton {
+        border-radius: 50%;
+        padding: 10px;
+    }
+}
+@media (min-width: 720px) {
+    .settings__itemHeading--mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 719px) {
+    .settings__itemsHeading {
+        display: none;
+    }
+    .settings__content {
+        background: none;
+        box-shadow: none;
+        border: none;
+    }
+    .settings__itemsRow {
+        padding: 10px 0;
+    }
+    .settings__items {
+        display: flex;
+        border-bottom: none;
+        flex-direction: column;
+        background: #fff;
+        margin: 10px;
+        padding: 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 5px gainsboro, 0 0 2px gray;
+        border-radius: 20px;
+    }
+    .settings__items > div {
+        display: flex;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .settings__itemsHeading {
+        border-bottom: none;
+    }
+    .settings__itemHeading--mobile {
+        font-size: 13px;
+        color: #444;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        width: 120px;
+    }
+    .settings__item {
+        width: 100%;
+        word-wrap: none;
+        white-space: nowrap;
+        font-size: 15px;
+    }
+    .settings__itemButtons {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

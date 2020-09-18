@@ -57,7 +57,7 @@
 .workForm__button {
     display: flex;
     align-items: center;
-    background: #5863f8;
+    background: var(--color--primary);
     color: #fff;
     margin-left: 10px;
     border-radius: 20px;
@@ -70,4 +70,18 @@
 }
 .workForm__button:hover {
     background: #515be9;
+}
+
+@media (max-width: 520px) {
+.workForm__field{
+flex-direction: column;
+}
+.workForm__label{
+    margin-bottom: 5px;
+}
+.workForm__inputText,
+.workForm__inputNumber,
+.workForm__inputDropdown {
+    width: 100%;
+}
 }

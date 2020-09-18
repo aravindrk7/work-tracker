@@ -1,6 +1,12 @@
-.App {
+.app {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: #F4F6FB;
+  background: #f4f6fb;
+}
+
+@media (max-width: 1120px) {
+  .app {
+    overflow: auto !important;
+  }
 }

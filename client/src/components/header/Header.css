@@ -52,6 +52,6 @@
     font-weight: bold;
 }
 .is-active {
-    background: #525be4;
+    background: var(--color--primary);
     color: #fff;
 }
