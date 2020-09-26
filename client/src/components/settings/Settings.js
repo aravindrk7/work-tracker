@@ -19,7 +19,7 @@ function Settings() {
     const [updateCount, setUpdateCount] = useState(0);
 
     useEffect(() => {
-        axios.get(api_url + 'dashboard')
+        axios.get(api_url + 'dashboard/all')
             .then(response => {
                 setWorks(response.data.list);
             });
@@ -139,10 +139,10 @@ function Settings() {
                             </div>
                             {/* <h2 className="settings__itemHeading--mobile">Action</h2> */}
                             <div className="settings__itemButtons">
-                                <button title="Edit" className="settings__itemButton" onClick={() => openPopup('Update', work._id)} title="Edit">
+                                <button className="settings__itemButton" onClick={() => openPopup('Update', work._id)} title="Edit">
                                     <EditIcon className="settings__icon" />
                                 </button>
-                                <button title="Delete" className="settings__itemButton" onClick={() => handleDelete(work._id)} title="Delete">
+                                <button className="settings__itemButton" onClick={() => handleDelete(work._id)} title="Delete">
                                     <DeleteIcon className="settings__icon" />
                                 </button>
                             </div>

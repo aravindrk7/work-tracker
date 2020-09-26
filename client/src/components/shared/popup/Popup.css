@@ -51,7 +51,7 @@
     .popup__box {
         left: 10px;
         right: 10px;
-        top: 25%;
+        top: 10%;
         transform: none;
     }
 }

@@ -13,7 +13,7 @@ function Dashboard() {
     const [photoshopWorks, setPhotoshopWorks] = useState({});
     const [webWorks, setWebWorks] = useState({});
     useEffect(() => {
-        axios.get(api_url + 'dashboard')
+        axios.get(api_url + 'dashboard/all')
             .then(response => {
                 setWorks(response.data);
             });

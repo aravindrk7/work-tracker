@@ -81,7 +81,6 @@
     flex-grow: 0;
     display: flex;
     align-items: center;
-    /* width: 120px; */
 }
 
 .settings__itemsRow {
@@ -103,10 +102,8 @@
 }
 
 .settings__item {
-    /* background: red; */
     display: flex;
     align-items: center;
-    /* flex-basis: 14.28%; */
     flex-grow: 0;
     width: 120px;
     padding-right: 30px;

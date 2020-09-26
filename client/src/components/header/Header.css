@@ -55,3 +55,36 @@
     background: var(--color--primary);
     color: #fff;
 }
+
+.header__icons {
+    position: relative;
+    margin-left: 15px;
+    display: flex;
+}
+
+.header__icon {
+    color: #f4f4f4;
+    cursor: pointer;
+}
+.header__user {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 0 5px gainsboro, 0 0 2px gray;
+    right: 5px;
+    top: 30px;
+    min-width: 120px;
+}
+.header__userItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    border-bottom: 1px solid rgb(243, 242, 242);
+}
+.header__userItem:hover {
+    color: #fff;
+    background: var(--color--primary);
+}

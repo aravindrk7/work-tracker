@@ -1,0 +1,22 @@
+.message {
+    /* border: 1px solid rgb(1, 105, 9); */
+    /* background: rgb(178, 224, 169);
+    box-shadow: 0 0 5px rgb(178, 224, 169), 0 0 2px rgb(1, 105, 9); */
+    /* border: 1px solid rgb(226, 0, 0);*/
+    /* background: rgb(255, 183, 183);  */
+    /* box-shadow: 0 0 5px rgb(255, 183, 183), 0 0 2px rgb(226, 0, 0); */
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 3px;
+    margin: 5px 0;
+    font-size: 14px;
+}
+.message__clear {
+    cursor: pointer;
+    font-size: 18px !important;
+}
+.message__clear:hover {
+    color: rgb(63, 63, 63);
+}

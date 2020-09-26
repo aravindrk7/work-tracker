@@ -68,7 +68,7 @@ function Info({ works }) {
                     <LocalAtmIcon />
                 </div>
                 <div className="info__count">
-                    <p className="info__value">{Math.ceil(works.earningsPerProject)}</p>
+                    <p className="info__value">{Math.ceil(works.earningsPerProject || 0)}</p>
                     <h1 className="info__card-heading">Earnings / Project</h1>
                 </div>
             </div>
@@ -109,7 +109,7 @@ function Info({ works }) {
                     <EqualizerIcon />
                 </div>
                 <div className="info__count">
-                    <p className="info__value">{parseFloat(works.projectPerMonth).toFixed(1)}</p>
+                    <p className="info__value">{parseFloat(works.projectPerMonth || 0).toFixed(1)}</p>
                     <h1 className="info__card-heading">Projects / Month</h1>
                 </div>
             </div>
