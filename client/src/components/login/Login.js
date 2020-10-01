@@ -1,10 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { config } from './../../constants';
 import axios from 'axios';
 import UserContext from './../../context/userContext';
 import './Login.css';
 import MessageNotice from '../shared/messageNoticie/messageNotice';
+import { useSpring, animated } from 'react-spring';
 
 function Login() {
     const api_url = config.url.API_URL;
@@ -14,8 +15,12 @@ function Login() {
         email: '',
         password: ''
     });
-    const { setUserData } = useContext(UserContext);
+    const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
+
+    useEffect(() => {
+        if (userData.user) history.push('/');
+    });
 
     const handleFormData = (e) => {
         let name = e.target.name;
@@ -48,8 +53,14 @@ function Login() {
         setMessageType(undefined);
     };
 
+    // Animations
+    const fade = useSpring({
+        from: { opacity: 0 },
+        opacity: 1,
+    });
+
     return (
-        <div className="login">
+        <animated.div className="login" style={fade}>
             <h1 className="login__heading">Login</h1>
             {message && (
                 <MessageNotice message={message} clearMessage={clearMessage} type={messageType} />
@@ -73,7 +84,7 @@ function Login() {
                     <button className="login__button">Login</button>
                 </div>
             </form>
-        </div>
+        </animated.div>
     )
 }
 

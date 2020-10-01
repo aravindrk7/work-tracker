@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Header.css';
 import { NavLink } from "react-router-dom";
-import logo from './../../images/logo.png';
+// import logo from './../../images/logo.png';
 import UserContext from './../../context/userContext';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
@@ -16,8 +16,8 @@ function Header() {
     }
     const logout = () => {
         setUserData({
-            token: undefined,
-            user: undefined
+            token: null,
+            user: null
         });
         localStorage.setItem('auth-token', '');
         history.push('/login');
@@ -26,11 +26,12 @@ function Header() {
     return (
         <div className="header">
             <div className="header__heading">
-                <NavLink to="/">
-                    <img
+                <NavLink to="/" className="header__name">
+                    {/* <img
                         className="header__logo"
                         src={logo}
-                        alt="LOGO" />
+                        alt="LOGO" /> */}
+                    <p>WorkTracker</p>
                 </NavLink>
             </div>
             <div className="header__routes">

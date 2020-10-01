@@ -12,6 +12,7 @@ router.post('/add', async (req, res) => {
         status: req.body.status,
         title: req.body.title,
         earning: req.body.earning,
+        email: req.body.email,
         startdate: Date.now()
     });
     try {

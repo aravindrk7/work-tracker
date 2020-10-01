@@ -1,0 +1,14 @@
+.noData {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noData__message{
+    text-transform: uppercase;
+    font-size: 23px;
+    font-weight: bold;
+    color: var(--text--primary);
+}

@@ -1,14 +1,20 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext,useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { config } from './../../constants';
 import axios from 'axios';
 import UserContext from './../../context/userContext';
 import './Register.css';
 import MessageNotice from '../shared/messageNoticie/messageNotice';
+import { useSpring, animated } from 'react-spring';
 
 function Register() {
-    const { setUserData } = useContext(UserContext);
+    const { userData } = useContext(UserContext);
     const history = useHistory();
+
+    useEffect(() => {
+        if (userData.user) history.push('/');
+    });
+
     const [message, setMessage] = useState();
     const [messageType, setMessageType] = useState();
     const [formData, setFormData] = useState({
@@ -56,8 +62,14 @@ function Register() {
         setMessageType(undefined);
     };
 
+    // Animations
+    const fade = useSpring({
+        from: { opacity: 0 },
+        opacity: 1,
+    });
+
     return (
-        <div className="register">
+        <animated.div className="register" style={fade}>
             <h1 className="register__heading">Register</h1>
             {message && (
                 <MessageNotice message={message} clearMessage={clearMessage} type={messageType} />
@@ -93,7 +105,7 @@ function Register() {
                     <button className="register__button">Register</button>
                 </div>
             </form>
-        </div>
+        </animated.div>
     )
 }
 

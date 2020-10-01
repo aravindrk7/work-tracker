@@ -6,6 +6,10 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import { useSpring, animated } from 'react-spring';
+import InfoCard from './components/infoCard/InfoCard';
+import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import WatchLaterIcon from '@material-ui/icons/WatchLater';
 
 function Info({ works }) {
     const fadeIn = useSpring({
@@ -44,75 +48,34 @@ function Info({ works }) {
         <animated.div className="info" style={fadeIn}>
 
             <div className="info__card info__project">
-                <div className="info__icon">
-                    <ComputerIcon />
-                </div>
-                <div className="info__count">
-                    <p className="info__value">{works.projects}</p>
-                    <h1 className="info__card-heading">Projects</h1>
-                </div>
+                <InfoCard icon={ComputerIcon} data={{ title: 'Projects', value: works.projects }} />
             </div>
 
             <div className="info__card info__earning">
-                <div className="info__icon">
-                    <AttachMoneyIcon />
-                </div>
-                <div className="info__count">
-                    <p className="info__value">{works.earnings}</p>
-                    <h1 className="info__card-heading">Earnings</h1>
-                </div>
+                <InfoCard icon={AttachMoneyIcon} data={{ title: 'Earnings', value: works.earnings }} />
             </div>
 
             <div className="info__card info__epp">
-                <div className="info__icon">
-                    <LocalAtmIcon />
-                </div>
-                <div className="info__count">
-                    <p className="info__value">{Math.ceil(works.earningsPerProject || 0)}</p>
-                    <h1 className="info__card-heading">Earnings / Project</h1>
-                </div>
+                <InfoCard icon={LocalAtmIcon} data={{ title: 'Earnings / Project', value: Math.ceil(works.earningsPerProject || 0) }} />
             </div>
 
             <div className="info__status info__card">
                 <div className="info__status-card">
-                    <span className="info__outer" style={{ background: "#00cddb" }}>
-                        <span className="info__inner"></span>
-                    </span>
-                    <div className="info__count">
-                        <p className="info__value">{works.open}</p>
-                        <h1 className="info__card-heading">Open</h1>
-                    </div>
+                    <InfoCard icon={OfflineBoltIcon} data={{ title: 'Open', value: works.open }} />
                 </div>
 
                 <div className="info__status-card">
-                    <span className="info__outer" style={{ background: "#fcba03" }}>
-                        <span className="info__inner"> </span>
-                    </span>
-                    <div className="info__count">
-                        <p className="info__value">{works.inProgress}</p>
-                        <h1 className="info__card-heading">InProgress</h1>
-                    </div>
+                    <InfoCard icon={WatchLaterIcon} data={{ title: 'InProgress', value: works.inProgress }} />
                 </div>
                 <div className="info__status-card">
-                    <span className="info__outer" style={{ background: "green" }}>
-                        <span className="info__inner"> </span>
-                    </span>
-                    <div className="info__count">
-                        <p className="info__value">{works.completed}</p>
-                        <h1 className="info__card-heading">Completed</h1>
-                    </div>
+                    <InfoCard icon={CheckCircleIcon} data={{ title: 'Completed', value: works.completed }} />
                 </div >
             </div >
 
             <div className="info__card info__ppm">
-                <div className="info__icon">
-                    <EqualizerIcon />
-                </div>
-                <div className="info__count">
-                    <p className="info__value">{parseFloat(works.projectPerMonth || 0).toFixed(1)}</p>
-                    <h1 className="info__card-heading">Projects / Month</h1>
-                </div>
+                <InfoCard icon={EqualizerIcon} data={{ title: 'Projects / Month', value: parseFloat(works.projectPerMonth || 0).toFixed(1) }} />
             </div>
+
             <div className="info__card info__graph">
                 <Charts state={state} />
             </div >

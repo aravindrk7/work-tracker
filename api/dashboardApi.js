@@ -6,9 +6,9 @@ router.get('/', async (req, res) => {
 });
 
 // Get all work info
-router.get('/all', async (req, res) => {
+router.get('/all/:email', async (req, res) => {
     try {
-        const workData = await Work.find();
+        const workData = await Work.find({ email: req.params['email'] });
         if (workData) {
             res.json(getWorkData(workData));
         }
@@ -23,10 +23,9 @@ router.get('/all', async (req, res) => {
 });
 
 // Get specific work info
-router.get('/:category', async (req, res) => {
-    console.log(req.params['category']);
+router.get('/:category/:email', async (req, res) => {
     try {
-        const workData = await Work.find({ category: req.params['category'] });
+        const workData = await Work.find({ category: req.params['category'], email: req.params['email'] });
         if (workData) {
             res.json(getWorkData(workData));
         }
@@ -38,26 +37,6 @@ router.get('/:category', async (req, res) => {
         res.json({ message: err });
     }
 });
-
-router.post('/add-work', async (req, res) => {
-    const addWork = new Work({
-        category: req.body.category,
-        subCategory: req.body.subCategory,
-        status: req.body.status,
-        title: req.body.title,
-        earning: req.body.earning,
-        startdate: Date.now()
-    });
-    try {
-        const savedWork = await addWork.save();
-        res.json(savedWork);
-    }
-    catch (err) {
-        res.json({ message: err });
-    }
-
-});
-
 
 function getGraphData(data) {
     let series = [];

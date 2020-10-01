@@ -18,6 +18,10 @@ const workSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
     startdate: {
         type: Date,
         default: Date.now()

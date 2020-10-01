@@ -83,6 +83,7 @@ router.post('/login', async (req, res) => {
             token,
             user: {
                 id: user._id,
+                email: user.email,
                 displayName: user.displayName
             }
         });
@@ -132,6 +133,7 @@ router.get('/currentUser', auth, async (req, res) => {
         const user = await User.findById(req.user);
         res.json({
             displayName: user.displayName,
+            email: user.email,
             id: user._id
         });
     } catch (error) {

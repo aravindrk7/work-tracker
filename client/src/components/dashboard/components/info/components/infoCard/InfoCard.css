@@ -1,0 +1,29 @@
+.infoCard {
+    display: flex;
+}
+
+.info__icon {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(182, 182, 182);
+    margin-right: 15px;
+}
+.info__count {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.info__card-heading {
+    padding: 0;
+    font-weight: bold;
+    font-size: 13px;
+    color: #888;
+}
+.info__value {
+    padding: 0;
+    color: var(--color--primary);
+    font-size: 25px;
+}

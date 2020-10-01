@@ -1,24 +1,55 @@
 .tab {
     display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: #fff;
+    box-shadow: 0 0 10px gainsboro, 0 0 5px gainsboro;
+}
+.tab__logo {
+    font-size: 14px;
+    font-weight: bold;
+    height: 50px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
+    color: var(--color--primary);
 }
 .tab__menu {
     text-decoration: none;
     font-size: 14px;
     font-weight: bold;
     color: #777;
-    padding: 0 10px;
-    border-right: 1px solid gainsboro;
+    padding: 10px;
+    width: 100%;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .tab__menu:last-child {
     border: none;
 }
-.tab__menu:hover:not(.active) {
+
+.tab__menu:hover:not(.is-active-tab) .tab__icon {
     color: black;
 }
-.is-active-tab {
+.tab__menu:hover:not(.is-active-tab) {
+    background: #f4f6fb;
+}
+
+.is-active-tab .tab__icon {
     color: var(--color--primary);
+}
+.is-active-tab {
+    background: #f4f6fb;
+}
+
+
+.tab__icon {
+    color: var(--text--primary);
+    /* cursor: pointer; */
 }

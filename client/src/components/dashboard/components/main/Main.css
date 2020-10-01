@@ -1,5 +1,5 @@
 .main {
-    height: calc(100% - 18px);
+    height: 100%;
 }
 .main__heading {
     font-size: 18px;
@@ -16,11 +16,10 @@
 }
 
 .main__dashboard {
-    height: calc(100% - 75px);
+    height: calc(100% - 50px);
 }
 .main__workList {
-    height: calc(100% - 75px);
-    /* background: red; */
+    height: calc(100% - 50px);
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -38,7 +37,7 @@
     .main__workList {
         height: 500px;
         overflow-y: auto;
-        
+
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -46,4 +45,7 @@
     .main__WorkListHeading {
         display: block;
     }
+}
+.noData__container {
+    height: calc(100% - 80px);
 }

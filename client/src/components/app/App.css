@@ -4,8 +4,11 @@
   overflow: hidden;
   background: #f4f6fb;
 }
+.app__main{
+  margin-left: 50px;
+}
 
-@media (max-width: 1120px) {
+@media (max-width: 1000px) {
   .app {
     overflow: auto !important;
   }
