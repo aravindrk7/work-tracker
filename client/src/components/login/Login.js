@@ -17,7 +17,7 @@ function Login() {
         password: ''
     });
     const { userData, setUserData } = useContext(UserContext);
-    const { headerData, setHeaderData } = useContext(HeaderContext);
+    const { setHeaderData } = useContext(HeaderContext);
     const history = useHistory();
 
     useEffect(() => {
@@ -25,6 +25,7 @@ function Login() {
             heading: 'WorkTracker',
             subHeading: ''
         });
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {

@@ -85,6 +85,7 @@
     height: 90px;
     border-radius: 50%;
     object-fit: cover;
+    box-shadow: 0 0 5px gainsboro;
 }
 .userSidebar__displayName {
     font-weight: bold;

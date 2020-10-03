@@ -1,10 +1,7 @@
 import React from 'react';
 import './Info.css';
 import Charts from './../../../shared/charts/Charts';
-import ComputerIcon from '@material-ui/icons/Computer';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import LocalAtmIcon from '@material-ui/icons/LocalAtm';
-import EqualizerIcon from '@material-ui/icons/Equalizer';
+
 import { useSpring, animated } from 'react-spring';
 import InfoCard from './components/infoCard/InfoCard';
 import List from '../../components/list/List';
@@ -69,19 +66,19 @@ function Info({ works }) {
         <animated.div className="info" style={fadeIn}>
 
             <div className="info__card info__project">
-                <InfoCard icon={ComputerIcon} data={{ title: 'Projects', value: works.projects }} />
+                <InfoCard icon={'ComputerIcon'} data={{ title: 'Projects', value: works.projects }} />
             </div>
 
             <div className="info__card info__earning">
-                <InfoCard icon={AttachMoneyIcon} data={{ title: 'Earnings', value: works.earnings }} />
+                <InfoCard icon={'AttachMoneyIcon'} data={{ title: 'Earnings', value: works.earnings }} />
             </div>
 
             <div className="info__card info__epp">
-                <InfoCard icon={LocalAtmIcon} data={{ title: 'Earnings / Project', value: Math.ceil(works.earningsPerProject || 0) }} />
+                <InfoCard icon={'LocalAtmIcon'} data={{ title: 'Earnings / Project', value: Math.ceil(works.earningsPerProject || 0) }} />
             </div>
 
             <div className="info__card info__ppm">
-                <InfoCard icon={EqualizerIcon} data={{ title: 'Projects / Month', value: parseFloat(works.projectPerMonth || 0).toFixed(1) }} />
+                <InfoCard icon={'EqualizerIcon'} data={{ title: 'Projects / Month', value: parseFloat(works.projectPerMonth || 0).toFixed(1) }} />
             </div>
 
             <div className="info__card info__graph">

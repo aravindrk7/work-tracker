@@ -1,26 +1,15 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { useHistory,useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './Header.css';
 import { NavLink } from "react-router-dom";
 import UserContext from './../../context/userContext';
 import HeaderContext from './../../context/headerContext';
+
 function Header() {
-    const { userData, setUserData } = useContext(UserContext);
-    const history = useHistory();
+    const { userData } = useContext(UserContext);
     const location = useLocation();
-    const [dropdown, setDropdown] = useState(false);
     const { headerData } = useContext(HeaderContext);
-    const toggleDropdown = () => {
-        setDropdown(prev => prev = !prev);
-    }
-    const logout = () => {
-        setUserData({
-            token: null,
-            user: null
-        });
-        localStorage.setItem('auth-token', '');
-        history.push('/login');
-    }
+
     const [headerStyle, setHeaderStyle] = useState();
     useEffect(() => {
         if (location.pathname === '/login' || location.pathname === '/register') {

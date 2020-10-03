@@ -22,12 +22,13 @@ function Settings() {
     const [updateCount, setUpdateCount] = useState(0);
     const { userData } = useContext(UserContext);
     const history = useHistory();
-    const { headerData, setHeaderData } = useContext(HeaderContext);
+    const { setHeaderData } = useContext(HeaderContext);
     useEffect(() => {
         setHeaderData({
             heading: 'Manage Project',
             subHeading: `${works.length || 0} projects found`
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [works]);
 
     useEffect(() => {

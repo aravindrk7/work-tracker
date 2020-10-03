@@ -9,7 +9,7 @@ import HeaderContext from './../../../../context/headerContext';
 import UserSidebar from '../userSidebar/UserSidebar';
 
 function Main({ works }) {
-    const { headerData, setHeaderData } = useContext(HeaderContext);
+    const { setHeaderData } = useContext(HeaderContext);
     const location = useLocation();
     const currentRoute = {
         "/dashboard/overall": 'All',
@@ -22,6 +22,7 @@ function Main({ works }) {
             heading: 'Overview',
             subHeading: `Category - ${currentRoute[location.pathname]}`
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location]);
     return (
         <div className="main">

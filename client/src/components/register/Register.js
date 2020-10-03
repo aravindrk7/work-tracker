@@ -1,4 +1,4 @@
-import React, { useState, useContext,useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { config } from './../../constants';
 import axios from 'axios';
@@ -11,13 +11,14 @@ import { useSpring, animated } from 'react-spring';
 function Register() {
     const { userData } = useContext(UserContext);
     const history = useHistory();
-    const { headerData, setHeaderData } = useContext(HeaderContext);
+    const { setHeaderData } = useContext(HeaderContext);
 
     useEffect(() => {
         setHeaderData({
             heading: 'WorkTracker',
             subHeading: ''
         });
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     useEffect(() => {
         if (userData.user) history.push('/');

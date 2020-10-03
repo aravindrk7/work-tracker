@@ -13,11 +13,12 @@
 .tab__logo {
     font-size: 16px;
     font-weight: bold;
-    height: 80px;
+    height: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--color--primary);
+    color: var(--text--primary);
 }
 .tab__logo--small {
     display: none;
@@ -28,6 +29,11 @@
     align-items: center;
     color: var(--color--primary);
     font-family: Mulish-black;
+}
+.tab__logoImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 .tab__menu {
     text-decoration: none;

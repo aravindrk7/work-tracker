@@ -4,7 +4,7 @@ import UserContext from './../../context/userContext';
 import './Dashboard.css';
 import Main from './components/main/Main';
 import NoMatch from '../noMatch/NoMatch';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { config } from './../../constants';
 import axios from 'axios';
 
@@ -15,12 +15,6 @@ function Dashboard() {
     const [webWorks, setWebWorks] = useState({});
     const { userData } = useContext(UserContext);
     const history = useHistory();
-    // useEffect(() => {
-    //     if (typeof userData.user !== 'undefined') {
-    //         if (!userData.user) history.push('/login');
-    //     }
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
 
     useEffect(() => {
         if (typeof userData.user !== 'undefined') {

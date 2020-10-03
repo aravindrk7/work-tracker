@@ -2,12 +2,11 @@ import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from './../../../../context/userContext';
 import './UserSidebar.css';
-import logo from './../../../../images/img.jpg';
+import dp from './../../../../images/s.JPG';
 import Charts from './../../../shared/charts/Charts';
 import MenuIcon from '@material-ui/icons/Menu';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 function UserSidebar({ works }) {
     const { userData, setUserData } = useContext(UserContext);
@@ -20,7 +19,8 @@ function UserSidebar({ works }) {
     const getProgress = () => {
         const percentage = (works.list?.filter(item => {
             const date = new Date(item.startdate);
-            return date.getMonth() == (new Date).getMonth() && item.status === 'completed';
+            const now = new Date();
+            return date.getMonth() === (now).getMonth() && item.status === 'completed';
         }).length / 5) * 100;
         return percentage > 100 ? 100 : percentage;
     };
@@ -39,7 +39,7 @@ function UserSidebar({ works }) {
                     fontSize: '13px',
                     fontWeight: 'bold',
                     fontFamily: 'Mulish',
-                    color:'#003366'
+                    color: '#003366'
                 }
             },
             plotOptions: {
@@ -128,7 +128,7 @@ function UserSidebar({ works }) {
                 <div className="userSidebar__close" style={sidebarStyle}>
                     <KeyboardBackspaceIcon className="userSidebar__closeIcon" onClick={closeSidebar} />
                 </div>
-                <img className="userSidebar__image" src={logo} alt="" />
+                <img className="userSidebar__image" src={dp} alt="" />
                 <p className="userSidebar__displayName" >{userData.user?.displayName}</p>
                 <p className="userSidebar__email" >{userData.user?.email}</p>
                 <div className="userSidebar__progress">
