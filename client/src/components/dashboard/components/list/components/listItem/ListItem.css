@@ -27,7 +27,7 @@
     color: var(--color--primary);
     font-weight: bold;
 }
-.listItem__layer1::after {
+/* .listItem__layer1::after {
     content: "";
     position: absolute;
     width: 70px;
@@ -42,7 +42,7 @@
     height: 100px;
     background: var(--color--primary);
     left: -100%;
-}
+} */
 .listItem__layer2 {
     position: absolute;
     top: -7px;
@@ -57,7 +57,7 @@
     justify-content: center;
     align-items: center;
 }
-.listItem__layer3 {
+/* .listItem__layer3 {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -79,7 +79,7 @@
     z-index: 21;
     border-radius: 50%;
     box-shadow: 0 0 5px gainsboro, 0 0 3px rgb(184, 182, 182);
-}
+} */
 .listItem__details {
     width: 100%;
     position: absolute;
@@ -94,27 +94,31 @@
     justify-content: space-between;
 }
 .listItem__heading {
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 .listItem__subHeading {
-    font-size: 17px;
+    font-size: 15px;
     color: #444;
     width: 90%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: var(--text--primary);
+    margin-bottom: 5px;
 }
 .listItem__description {
+    font-size: 12px;
     width: 90%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #888;
+
 }
-.listItem__month,
-.listItem__description {
+.listItem__month{
     font-size: 14px;
     color: #888;
 }
@@ -123,6 +127,8 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    font-size: 18px;
+    color: var(--text--primary);
 }
 .listItem__day {
     font-size: 18px;
@@ -130,7 +136,7 @@
     font-weight: bold;
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     .list {
         width: calc(100% - 10px);
         margin-left: 10px;
@@ -164,4 +170,4 @@
         left: -37px;
     }
     
-}
+} */

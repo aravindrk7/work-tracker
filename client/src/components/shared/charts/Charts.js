@@ -8,9 +8,9 @@ function Charts({state}) {
             <Chart
                 options={state.options}
                 series={state.series}
-                type="bar"
+                type={state.type}
                 width="100%"
-                height="200px"
+                height="100%"
             />
         </div>
     )

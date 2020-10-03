@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { config } from './../../constants';
 import axios from 'axios';
 import UserContext from './../../context/userContext';
+import HeaderContext from './../../context/headerContext';
 import './Login.css';
 import MessageNotice from '../shared/messageNoticie/messageNotice';
 import { useSpring, animated } from 'react-spring';
@@ -16,7 +17,15 @@ function Login() {
         password: ''
     });
     const { userData, setUserData } = useContext(UserContext);
+    const { headerData, setHeaderData } = useContext(HeaderContext);
     const history = useHistory();
+
+    useEffect(() => {
+        setHeaderData({
+            heading: 'WorkTracker',
+            subHeading: ''
+        });
+    }, []);
 
     useEffect(() => {
         if (userData.user) history.push('/');

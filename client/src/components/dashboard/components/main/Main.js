@@ -1,31 +1,49 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Main.css';
 import Dash from '../info/Info';
-import List from '../list/List';
+
 import NoData from '../../../shared/noData/NoData';
 import { withRouter } from 'react-router-dom';
+import HeaderContext from './../../../../context/headerContext';
+import UserSidebar from '../userSidebar/UserSidebar';
 
 function Main({ works }) {
+    const { headerData, setHeaderData } = useContext(HeaderContext);
+    const location = useLocation();
+    const currentRoute = {
+        "/dashboard/overall": 'All',
+        "/dashboard/photoshop": 'Photoshop',
+        "/dashboard/web-dev": 'Web Development'
+    };
+    useEffect(() => {
+
+        setHeaderData({
+            heading: 'Overview',
+            subHeading: `Category - ${currentRoute[location.pathname]}`
+        });
+    }, [location]);
     return (
         <div className="main">
-            <h1 className="main__heading">Dashboard</h1>
-            {Object.keys(works).length !== 0 && works?.projects !== 0 ?
-                (
-                    <main className="main__content">
+
+            <main className="main__content">
+                {Object.keys(works).length !== 0 && works?.projects !== 0 ?
+                    (
                         <div className="main__dashboard">
                             <Dash works={works} />
                         </div>
-                        <div className="main__workList" >
-                            <h1 className="main__WorkListHeading">Work List</h1>
-                            <List works={works.list} />
-                        </div >
-                    </main >
-                ) :
-                (
-                    <div className="noData__container">
-                        <NoData message={'Add work to show here'} />
-                    </div>
-                )}
+                    ) :
+                    (
+                        <div className="noData__container">
+                            <NoData message={'Add work to show here'} />
+                        </div>
+                    )}
+                <div className="main__user">
+                    <UserSidebar works={works} />
+                </div>
+
+            </main >
+
         </div >
     )
 }

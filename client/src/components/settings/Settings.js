@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import './Settings.css';
 import { config } from './../../constants';
 import { useSpring, animated } from 'react-spring';
@@ -8,6 +9,7 @@ import AddIcon from '@material-ui/icons/Add';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import axios from 'axios';
 import UserContext from './../../context/userContext';
+import HeaderContext from './../../context/headerContext';
 import Popup from './../shared/popup/Popup';
 import NoData from './../shared/noData/NoData';
 
@@ -19,13 +21,26 @@ function Settings() {
     const [action, setAction] = useState('');
     const [updateCount, setUpdateCount] = useState(0);
     const { userData } = useContext(UserContext);
+    const history = useHistory();
+    const { headerData, setHeaderData } = useContext(HeaderContext);
+    useEffect(() => {
+        setHeaderData({
+            heading: 'Manage Project',
+            subHeading: `${works.length || 0} projects found`
+        });
+    }, [works]);
+
     useEffect(() => {
         if (typeof userData.user !== 'undefined') {
-
-            axios.get(api_url + 'dashboard/all/' + userData.user.email)
-                .then(response => {
-                    setWorks(response.data.list);
-                });
+            if (!userData.user) {
+                history.push('/login')
+            }
+            else {
+                axios.get(api_url + 'dashboard/all/' + userData.user.email)
+                    .then(response => {
+                        setWorks(response.data.list);
+                    });
+            }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [updateCount, userData.user]);
@@ -92,7 +107,11 @@ function Settings() {
         <div className="settings">
             {popup && <Popup closePopup={closePopup} action={action} formProps={formProps} refreshList={refreshList} />}
             <div className="settings__header">
-                <h1 className="settings__heading">Settings</h1>
+                <div className="settings__tab">
+                    {/* <p className="settings__tabName">All</p>
+                    <p className="settings__tabName">Photoshop</p>
+                    <p className="settings__tabName">Web-dev</p> */}
+                </div>
                 <div className="settings__headerButtons">
                     <button className="settings__headerButton settings__headerButton--white">
                         <FilterListIcon className="settings__headerButtonIcon" />

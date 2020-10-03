@@ -3,13 +3,18 @@
   height: 100vh;
   overflow: hidden;
   background: #f4f6fb;
+  /* background: #f8f8fb; */
 }
 .app__main{
-  margin-left: 50px;
+  margin-left: 150px;
 }
-
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
+  .app__main{
+    margin-left: 50px;
+  }
+}
+/* @media (max-width: 675px) {
   .app {
     overflow: auto !important;
   }
-}
+} */

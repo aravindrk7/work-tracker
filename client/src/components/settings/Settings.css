@@ -1,17 +1,24 @@
 .settings {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 75px);
     width: 100%;
     padding: 25px;
+    padding-top: 0;
 }
 .settings__header {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 25px;
+    height: 35px;
+    margin-bottom: 25px;
 }
-.settings__heading {
-    font-size: 18px;
-    padding: 10px 0;
-    color: #444;
+.settings__tab {
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: var(--text--primary);
+}
+.settings__tabName {
+    margin-right: 20px;
 }
 .settings__headerButtons {
     display: flex;
@@ -57,25 +64,24 @@
     height: calc(100% - 65px);
     display: flex;
     flex-direction: column;
-    padding-right: 20px;
-    background: #fff;
-    box-shadow: 0 0 10px gainsboro, 0 0 5px gainsboro;
     border-radius: 3px;
-    padding: 10px;
-    padding-top: 0px;
 }
 
 .settings__itemsHeading {
     display: flex;
     min-height: 50px;
-    border-bottom: 1px solid gainsboro;
+    background: #fff;
+    box-shadow: 0 0 3px gainsboro, 0 0 1px gainsboro;
     position: fixed;
-    right: 35px;
-    left: 85px;
+    right: 25px;
+    left: 175px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    padding: 0 10px;
 }
 
 .settings__itemHeading {
-    font-size: 15px;
+    font-size: 14px;
     color: #444;
     flex-basis: 14.28%;
     flex-grow: 0;
@@ -86,13 +92,17 @@
 .settings__itemsRow {
     height: calc(100% - 50px);
     overflow: auto;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .settings__items {
     display: flex;
     min-height: 50px;
-    border-bottom: 1px solid gainsboro;
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: 0 0 3px gainsboro, 0 0 1px gainsboro;
+    margin-bottom: 15px;
+    padding: 0 10px;
 }
 
 .settings__items > div {
@@ -107,7 +117,7 @@
     flex-grow: 0;
     width: 120px;
     padding-right: 30px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     color: #444;
     display: inline-block;
@@ -115,13 +125,13 @@
     overflow: hidden;
     text-overflow: ellipsis !important;
 }
-.settings__item--date{
+.settings__item--date {
     width: 115px;
 }
-.settings__item--status{
+.settings__item--status {
     width: 100px;
 }
-.settings__item--earning{
+.settings__item--earning {
     width: 75px;
 }
 
@@ -157,6 +167,74 @@
     transition: 0.5s !important;
 }
 
+@media (max-width: 1024px) {
+    .settings__itemsHeading {
+        left: 75px;
+    }
+}
+
+@media (min-width: 950px) {
+    .settings__itemHeading--mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 949px) {
+    .settings__itemsHeading {
+        display: none;
+    }
+    .settings__content {
+        height: calc(100% - 15px);
+        margin-top: -50px;
+        background: none;
+        box-shadow: none;
+        border: none;
+    }
+    .settings__itemsRow {
+        padding: 5px 0;
+    }
+    .settings__items {
+        display: flex;
+        border-bottom: none;
+        flex-direction: column;
+        background: #fff;
+        margin: 10px;
+        padding: 10px 20px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 5px gainsboro, 0 0 2px gray;
+        border-radius: 3px;
+    }
+    .settings__items > div {
+        display: flex;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .settings__itemsHeading {
+        border-bottom: none;
+    }
+    .settings__itemHeading--mobile {
+        font-size: 13px;
+        color: #444;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        width: 120px;
+    }
+    .settings__item {
+        width: 100%;
+        word-wrap: none;
+        white-space: nowrap;
+        font-size: 15px;
+    }
+    .settings__itemButtons {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 @media (max-width: 440px) {
     .settings__headerButtonName {
         display: none;
@@ -169,7 +247,7 @@
         padding: 10px;
     }
 }
-@media (min-width: 720px) {
+/* @media (min-width: 720px) {
     .settings__itemHeading--mobile {
         display: none;
     }
@@ -227,4 +305,4 @@
         justify-content: center;
         align-items: center;
     }
-}
+} */

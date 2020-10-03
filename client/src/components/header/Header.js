@@ -1,16 +1,15 @@
-import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext, useState, useEffect } from 'react';
+import { useHistory,useLocation } from 'react-router-dom';
 import './Header.css';
 import { NavLink } from "react-router-dom";
-// import logo from './../../images/logo.png';
 import UserContext from './../../context/userContext';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-
+import HeaderContext from './../../context/headerContext';
 function Header() {
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
+    const location = useLocation();
     const [dropdown, setDropdown] = useState(false);
+    const { headerData } = useContext(HeaderContext);
     const toggleDropdown = () => {
         setDropdown(prev => prev = !prev);
     }
@@ -22,29 +21,40 @@ function Header() {
         localStorage.setItem('auth-token', '');
         history.push('/login');
     }
+    const [headerStyle, setHeaderStyle] = useState();
+    useEffect(() => {
+        if (location.pathname === '/login' || location.pathname === '/register') {
+            setHeaderStyle({
+                marginLeft: '0px',
+                width: '100%'
+            });
+        }
+        else {
+            setHeaderStyle({});
+        }
+    }, [location]);
+
 
     return (
-        <div className="header">
+        <div className="header" style={headerStyle}>
             <div className="header__heading">
-                <NavLink to="/" className="header__name">
-                    {/* <img
-                        className="header__logo"
-                        src={logo}
-                        alt="LOGO" /> */}
-                    <p>WorkTracker</p>
-                </NavLink>
+                <p className="header__pageHeading">{headerData.heading}</p>
+                <span className="header__pageSubHeading">{headerData.subHeading}</span>
             </div>
             <div className="header__routes">
                 {
                     userData.user ?
                         (<>
-                            <NavLink to="/dashboard" activeClassName='is-active' className="header__menu">
+                            {/* <div className="header__userMenu">
+                                <MenuIcon onClick={handleUserSidebar} />
+                            </div> */}
+                            {/* <NavLink to="/dashboard" activeClassName='is-active' className="header__menu">
                                 <p >Dashboard</p>
                             </NavLink>
                             <NavLink to="/settings" activeClassName='is-active' className="header__menu">
                                 <p>Settings</p>
-                            </NavLink>
-                            <div className="header__icons">
+                            </NavLink> */}
+                            {/* <div className="header__icons">
                                 <AccountCircleIcon className="header__icon" />
                                 <ArrowDropDownIcon className="header__icon" onClick={toggleDropdown} />
                                 {dropdown &&
@@ -53,7 +63,7 @@ function Header() {
                                         <p className="header__userItem" onClick={logout}>Logout</p>
                                     </div>
                                 }
-                            </div>
+                            </div> */}
                         </>) :
                         (<>
 

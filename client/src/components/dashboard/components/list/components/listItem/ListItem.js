@@ -31,9 +31,6 @@ function ListItem({ work }) {
                 </div>
             </div>
             <div className="listItem__layer2"></div>
-            <div className="listItem__layer3">
-                <div className="listItem__layer4"></div>
-            </div>
             <div className="listItem__details">
                 <div className="listItem__heading">
                     <h1 className="listItem__subHeading">{work.subCategory}</h1>

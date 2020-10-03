@@ -6,9 +6,21 @@
     align-items: center;
 }
 
-.noData__message{
+.noData__message {
     text-transform: uppercase;
     font-size: 23px;
     font-weight: bold;
     color: var(--text--primary);
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    .noData__message {
+        font-size: 18px;
+    }
+}
+@media (max-width: 380px) {
+    .noData__message {
+        font-size: 15px;
+    }
 }

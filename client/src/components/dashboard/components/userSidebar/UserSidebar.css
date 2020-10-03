@@ -1,0 +1,176 @@
+.userSidebar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background: #fff;
+    box-shadow: 0 0 10px gainsboro, 0 0 5px gainsboro;
+    z-index: 1000;
+}
+.userSidebar__menu {
+    display: none;
+    padding: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.userSidebar__close {
+    display: none;
+    padding: 10px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    transition: 0.5s !important;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+.userSidebar__close:hover {
+    background: #eee;
+    /* transform: scale(1.4); */
+    /* transform: rotateY(360deg); */
+}
+.userSidebar__closeIcon {
+    color: var(--text--primary);
+    font-size: 18px !important;
+    cursor: pointer;
+}
+
+.userSidebar__userMenu {
+    z-index: 1001;
+    position: absolute;
+    right: 15px;
+    top: 25px;
+}
+
+.userSidebar__userMenuIcon {
+    color: var(--text--primary);
+    cursor: pointer;
+}
+
+.userSidebar__user {
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 0 5px gainsboro, 0 0 2px gray;
+    right: 5px;
+    top: 30px;
+    min-width: 120px;
+}
+.userSidebar__userItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    padding: 0 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.userSidebar__userItem:hover {
+    color: #fff;
+    background: var(--color--primary);
+}
+
+.userSidebar__image {
+    margin: 10px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.userSidebar__displayName {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: var(--text--primary);
+}
+.userSidebar__email {
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 12px;
+    color: #888;
+}
+
+.userSidebar__status {
+    width: 100%;
+    /* height: 200px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.userSidebar__statusHeading,
+.userSidebar__progressHeading {
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--text--primary);
+    margin-top: 10px;
+}
+.userSidebar__statusItem {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(241, 240, 240);
+}
+.userSidebar__statusItem > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userSidebar__statusItemValue {
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--text--primary);
+}
+.userSidebar__statusItemName {
+    font-weight: bold;
+    font-size: 13px;
+    color: #888;
+}
+.userSidebar__statusItemIndicator {
+    margin-left: 10px;
+    /* font-size: 15px !important;
+    text-shadow: 0 0 5px !important; */
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px,0 0 2px;
+    border: 2px solid #fff;
+}
+
+@media (max-width: 1100px) {
+    .userSidebar {
+        width: 200px;
+    }
+}
+@media (max-width: 950px) {
+    .userSidebar {
+        display: none;
+    }
+    .userSidebar__userMenu {
+        display: none;
+    }
+    .userSidebar__menu {
+        display: block;
+    }
+}
+@media (min-width: 951px) {
+    .userSidebar {
+        display: flex;
+    }
+    .userSidebar__userMenu {
+        display: flex;
+    }
+    .userSidebar__menu {
+        display: none;
+    }
+}

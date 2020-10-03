@@ -1,32 +1,30 @@
 .header {
-    width: calc(100% - 50px);
-    height: 50px;
+    width: calc(100% - 150px);
+    height: 80px;
     display: flex;
     padding: 0 25px;
     justify-content: space-between;
     user-select: none;
     color: var(--text--primary);
-    margin-left: 50px;
+    margin-left: 150px;
 }
-
 .header__heading {
     display: flex;
-    align-items: center;
-}
-.header__logo {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-.header__name {
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none !important;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    color: var(--text--primary);
+}
+
+.header__pageHeading {
+    font-family: Mulish-black;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+.header__pageSubHeading {
+    font-size: 13px;
+    color: #888;
+    font-family: Mulish-medium;
+    font-weight: bold;
 }
 
 .header__routes {
@@ -55,35 +53,25 @@
     color: var(--color--primary);
 }
 
-.header__icons {
-    position: relative;
-    margin-left: 15px;
-    display: flex;
+
+
+
+
+/* @media (max-width: 1100px) {
+    .header {
+        width: calc(100% - 200px);
+    }
+} */
+
+@media (max-width: 1024px) {
+    .header {
+        margin-left: 50px;
+    }
 }
 
-.header__icon {
-    color: var(--text--primary);
-    cursor: pointer;
-}
-.header__user {
-    position: absolute;
-    background: #fff;
-    box-shadow: 0 0 5px gainsboro, 0 0 2px gray;
-    right: 5px;
-    top: 30px;
-    min-width: 120px;
-}
-.header__userItem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 35px;
-    padding: 0 10px;
-    cursor: pointer;
-    transition: 0.5s;
-    border-bottom: 1px solid rgb(243, 242, 242);
-}
-.header__userItem:hover {
-    color: #fff;
-    background: var(--color--primary);
+@media (max-width: 950px) {
+    .header {
+        width: calc(100% - 50px);
+    }
+   
 }

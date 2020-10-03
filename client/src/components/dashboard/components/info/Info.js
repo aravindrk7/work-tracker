@@ -1,15 +1,13 @@
 import React from 'react';
 import './Info.css';
-import Charts from './../../../shared/charts/Charts'
+import Charts from './../../../shared/charts/Charts';
 import ComputerIcon from '@material-ui/icons/Computer';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import { useSpring, animated } from 'react-spring';
 import InfoCard from './components/infoCard/InfoCard';
-import OfflineBoltIcon from '@material-ui/icons/OfflineBolt';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import WatchLaterIcon from '@material-ui/icons/WatchLater';
+import List from '../../components/list/List';
 
 function Info({ works }) {
     const fadeIn = useSpring({
@@ -18,20 +16,43 @@ function Info({ works }) {
 
     })
     const state = {
+        type: "bar",
         options: {
             chart: {
                 id: "basic-bar",
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: true,
+                }
             },
             title: {
                 text: 'Projects per Month',
                 style: {
                     fontSize: '13px',
                     fontWeight: 'bold',
-                    fontFamily: 'ember'
+                    fontFamily: 'Mulish',
+                    color: '#003366'
                 }
             },
             xaxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                labels: {
+                    style: {
+                        fontSize: '11px',
+                        fontWeight: 'bold',
+                        fontFamily: 'Mulish'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        fontSize: '11px',
+                        fontWeight: 'bold',
+                        fontFamily: 'Mulish'
+                    }
+                }
             },
             fill: {
                 colors: ['var(--color--primary)']
@@ -59,25 +80,17 @@ function Info({ works }) {
                 <InfoCard icon={LocalAtmIcon} data={{ title: 'Earnings / Project', value: Math.ceil(works.earningsPerProject || 0) }} />
             </div>
 
-            <div className="info__status info__card">
-                <div className="info__status-card">
-                    <InfoCard icon={OfflineBoltIcon} data={{ title: 'Open', value: works.open }} />
-                </div>
-
-                <div className="info__status-card">
-                    <InfoCard icon={WatchLaterIcon} data={{ title: 'InProgress', value: works.inProgress }} />
-                </div>
-                <div className="info__status-card">
-                    <InfoCard icon={CheckCircleIcon} data={{ title: 'Completed', value: works.completed }} />
-                </div >
-            </div >
-
             <div className="info__card info__ppm">
                 <InfoCard icon={EqualizerIcon} data={{ title: 'Projects / Month', value: parseFloat(works.projectPerMonth || 0).toFixed(1) }} />
             </div>
 
             <div className="info__card info__graph">
                 <Charts state={state} />
+            </div >
+
+            <div className="info__card info__workList" >
+                <h1 className="info__WorkListHeading">Work List</h1>
+                <List works={works.list} />
             </div >
         </animated.div >
     )

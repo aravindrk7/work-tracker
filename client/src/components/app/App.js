@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import Login from '../login/Login';
 import Register from '../register/Register';
 import UserContext from './../../context/userContext';
+import HeaderContext from './../../context/headerContext';
 import axios from 'axios';
 import { config } from './../../constants';
 import Tab from './../shared/tab/Tab';
@@ -15,6 +16,10 @@ import Tab from './../shared/tab/Tab';
 function App() {
   const api_url = config.url.API_URL;
   const [userData, setUserData] = useState({
+    token: undefined,
+    user: undefined
+  });
+  const [headerData, setHeaderData] = useState({
     token: undefined,
     user: undefined
   });
@@ -52,59 +57,72 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const parent = "/dashboard/";
   const tabItems = [
     {
+      parent: "/dashboard/",
       path: 'overall',
       name: 'Overall',
       icon: 'DashboardIcon',
       id: 1
     },
     {
+      parent: "/dashboard/",
       path: 'photoshop',
       name: 'Photoshop',
       icon: 'CameraEnhanceIcon',
       id: 2
     },
     {
+      parent: "/dashboard/",
       path: 'web-dev',
-      name: 'Web Development',
+      name: 'Web Dev',
       icon: 'LanguageIcon',
       id: 3
+    },
+    {
+      parent: "/",
+      path: 'settings',
+      name: 'Manage Project',
+      icon: 'SettingsIcon',
+      id: 4
     }
   ];
 
   return (
     <Router>
       <UserContext.Provider value={{ userData, setUserData }}>
-        <div className="app">
-          <Header />
-          <Tab routes={tabItems} parent={parent} />
-          <div className="app__main">
+        <HeaderContext.Provider value={{ headerData, setHeaderData }}>
+          <div className="app">
+            <Header />
+            {userData.user &&
+              <Tab routes={tabItems} />
+            }
+            <div className="app__main">
 
-            <Switch>
-              <Route exact path="/">
-                <Redirect to="/dashboard" />
-              </Route>
-              <Route path="/dashboard">
-                <Dashboard />
-              </Route>
-              <Route path="/settings">
-                <Settings />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/register">
-                <Register />
-              </Route>
-              <Route path="*">
-                <NoMatch />
-              </Route>
-            </Switch>
+              <Switch>
+                <Route exact path="/">
+                  <Redirect to="/dashboard" />
+                </Route>
+                <Route path="/dashboard">
+                  <Dashboard />
+                </Route>
+                <Route path="/settings">
+                  <Settings />
+                </Route>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <Route path="/register">
+                  <Register />
+                </Route>
+                <Route path="*">
+                  <NoMatch />
+                </Route>
+              </Switch>
+            </div>
+
           </div>
-
-        </div>
+        </HeaderContext.Provider>
       </UserContext.Provider>
     </Router>
   );

@@ -1,6 +1,14 @@
 @font-face {
-  font-family: ember;
-  src: url(fonts/ember.ttf);
+  font-family: Mulish;
+  src: url(fonts/Mulish-Regular.ttf);
+}
+@font-face {
+  font-family: Mulish-medium;
+  src: url(fonts/Mulish-Medium.ttf);
+}
+@font-face {
+  font-family: Mulish-black;
+  src: url(fonts/Mulish-Black.ttf);
 }
 :root {
   --color--primary: #5863f8;
@@ -13,7 +21,7 @@
   box-sizing: border-box;
   border: none;
   outline: none;
-  font-family: ember;
+  font-family: Mulish;
   scroll-behavior: smooth;
 }
 
@@ -42,4 +50,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
