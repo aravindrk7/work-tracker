@@ -10,7 +10,8 @@
     bottom: 0;
     width: 250px;
     background: #fff;
-    box-shadow: 0 0 10px gainsboro, 0 0 5px gainsboro;
+    /* box-shadow: 0 0 10px gainsboro, 0 0 5px gainsboro; */
+    box-shadow: 0 0 3px gainsboro, 0 0 5px gainsboro;
     z-index: 1000;
 }
 .userSidebar__menu {
